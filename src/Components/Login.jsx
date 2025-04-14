@@ -57,7 +57,12 @@ const StyledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
+const apiUrl = import.meta.env.VITE_API_URL;
+  
+
 function Login() {
+
+  
 
   const [identifier, setIdentifier] = useState("")
   const [password, setPassword] = useState("")
@@ -70,7 +75,7 @@ function Login() {
   const { isPending, mutate } = useMutation({
     mutationKey: ["login-user"],
     mutationFn: async () => {
-      const response = await axios.post(`http://localhost:4000/auth/login`,
+      const response = await axios.post(`${apiUrl}/auth/login`,
         {identifier, password},
         { withCredentials: true },
       );
