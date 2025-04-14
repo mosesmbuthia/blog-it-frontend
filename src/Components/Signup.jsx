@@ -85,7 +85,7 @@ function Signup() {
     function handleSignup(e) {
         e.preventDefault();
         setFormError(null);
-        // console.log({firstName, lastName, emailAddress, userName, password, confirmPassword});
+        
         if (password !== confirmPassword) {
             setFormError("Passwords do not match")
             return;
