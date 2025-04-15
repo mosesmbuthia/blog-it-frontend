@@ -8,6 +8,7 @@ import { useMutation } from '@tanstack/react-query';
 import { CircularProgress } from '@mui/material';
 import { Alert } from '@mui/material';
 import axios from 'axios';
+import apiUrl from '../Utilities/Utilities.js';
 
 
 const LoginContainer = styled(Box)({
@@ -57,7 +58,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const apiUrl = import.meta.env.VITE_API_URL;
+
   
 
 function Login() {

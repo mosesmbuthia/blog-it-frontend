@@ -1,12 +1,14 @@
 import { Box, Typography, TextField, Button, Paper, Grid, Alert } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { CircularProgress } from '@mui/material';
+import apiUrl from '../Utilities/Utilities.js';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+
+
 
 
 
@@ -58,11 +60,18 @@ function Signup() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [formError, setFormError] = useState("");
     const navigate = useNavigate();
+   
 
     const { isPending, mutate } = useMutation({
         mutationKey: ["register-user"],
         mutationFn: async () => {
-            const response = await axios.post(`${apiUrl}/auth/signup`, { firstName, lastName, emailAddress, userName, password })
+            const response = await axios.post(`${apiUrl}/auth/signup`, {
+                firstName,
+                lastName,
+                emailAddress,
+                userName,
+                password,
+            });
             return response.data;
 
         },
